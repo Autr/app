@@ -1,0 +1,34 @@
+{
+  "name": "directus-app",
+  "alias": [],
+  "builds": [
+    {
+      "src": "/dist/**",
+      "use": "@now/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": ".*/style.css",
+      "dest": "/dist/style.css"
+    },
+    {
+      "src": ".*/script.js",
+      "dest": "/dist/script.js"
+    },
+    {
+      "src": ".*/config.js",
+      "dest": "/dist/config.js"
+    },
+    {
+      "src": ".*/manifest.webmanifest",
+      "dest": "/dist/manifest.webmanifest"
+    },
+    {
+      "src": "/.*(js|css|img|fonts)/(.*)",
+      "dest": "/dist/$1/$2"
+    },
+    { "handle": "filesystem" },
+    { "src": "(^((?!\\.).)*$)", "dest": "/dist/index.html" }
+  ]
+}
